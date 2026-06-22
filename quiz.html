@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Milyen szakértő-előadó típus vagy valójában? | SuperSpeakers</title>
+<meta name="description" content="7 gyors kérdés, 2 perc — és kiderül, mi emeli vagy fékezi az előadói értékedet, plusz a következő lépésed a validált szakértői szint felé." />
+
+<!-- Brand fonts: Barlow Condensed (headings) + Inter (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    /* SuperSpeakers — Official Brand Color Palette (Final Edition) */
+    --teal:#14B8A6;
+    --cyan:#06B6D4;
+    --electric:#2563EB;
+    --blue:#3B82F6;
+    --ocean-deep:#0B2A3A;
+    --midnight:#081726;
+    --verified:#10B981;        /* reserved: validation only */
+    --ink:#0B2A3A;
+    --text:#33485A;            /* neutral grey-blue body */
+    --muted:#6B8294;
+    --line:#E2ECF1;
+    --card:#FFFFFF;
+    --badge-grad:linear-gradient(135deg,var(--teal) 0%,var(--cyan) 100%);
+    --ocean-wave:linear-gradient(135deg,#0B2A3A 0%,#0E5C73 60%,#06B6D4 100%);
+    --dark-premium:linear-gradient(160deg,#081726 0%,#0B2A3A 55%,#0E3A4E 100%);
+    --shadow:0 18px 50px -18px rgba(8,23,38,.45);
+    --shadow-soft:0 8px 24px -10px rgba(8,23,38,.30);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    color:var(--text);
+    background:var(--dark-premium);
+    background-attachment:fixed;
+    min-height:100dvh;
+    -webkit-font-smoothing:antialiased;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    padding:18px 16px calc(28px + env(safe-area-inset-bottom));
+  }
+
+  /* subtle ambient glow */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(620px 420px at 12% -8%, rgba(6,182,212,.22), transparent 60%),
+      radial-gradient(560px 420px at 95% 8%, rgba(37,99,235,.20), transparent 60%);
+  }
+
+  .stage{position:relative;z-index:1;width:100%;max-width:560px;margin:0 auto}
+
+  /* ---------- Brand bar ---------- */
+  .brandbar{display:flex;align-items:center;justify-content:center;gap:10px;margin:6px 0 16px}
+  .hexbadge{
+    width:34px;height:38px;flex:none;position:relative;
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    background:var(--badge-grad);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px -6px rgba(6,182,212,.7);
+  }
+  .hexbadge svg{width:16px;height:16px}
+  .brandword{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:#EAF6FA;font-size:18px;line-height:1;
+  }
+  .brandword small{font-weight:500;opacity:.8;letter-spacing:.22em}
+
+  /* ---------- Card ---------- */
+  .card{
+    background:var(--card);border-radius:22px;box-shadow:var(--shadow);
+    padding:30px 24px 28px;border:1px solid rgba(255,255,255,.6);
+    animation:rise .45s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+  .eyebrow{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.18em;font-size:13px;color:var(--teal);margin-bottom:12px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line),transparent)}
+
+  h1{
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--ink);
+    font-size:clamp(30px,8.4vw,42px);line-height:1.02;letter-spacing:.005em;
+    text-transform:uppercase;margin-bottom:14px;
+  }
+  .subtitle{font-size:16px;line-height:1.55;color:var(--text);margin-bottom:22px}
+  .subtitle strong{color:var(--ink)}
+
+  .meta{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 26px;padding-top:18px;border-top:1px solid var(--line)}
+  .meta .item{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--muted);font-weight:500}
+  .meta .item b{color:var(--ink);font-weight:700}
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--badge-grad);flex:none}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    appearance:none;border:0;cursor:pointer;width:100%;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;
+    letter-spacing:.06em;font-size:20px;color:#fff;
+    background:var(--badge-grad);border-radius:14px;padding:17px 22px;
+    box-shadow:0 12px 26px -10px rgba(6,182,212,.8);
+    transition:transform .12s ease, box-shadow .2s ease, filter .2s ease;
+  }
+  .btn:hover{filter:brightness(1.04)}
+  .btn:active{transform:translateY(1px) scale(.995)}
+  .btn:disabled{opacity:.55;cursor:not-allowed;filter:grayscale(.2)}
+  .btn .arrow{margin-left:8px}
+
+  /* ---------- Progress ---------- */
+  .progress-wrap{margin-bottom:22px}
+  .progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+  .progress-top .qn{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.16em;font-size:13px;color:var(--teal);
+  }
+  .progress-top .pct{font-size:12.5px;color:var(--muted);font-weight:600}
+  .track{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+  .fill{height:100%;width:0;border-radius:99px;background:var(--badge-grad);transition:width .4s cubic-bezier(.2,.7,.2,1)}
+
+  .question{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;color:var(--ink);
+    font-size:clamp(23px,6.4vw,30px);line-height:1.12;margin-bottom:20px;
+  }
+
+  /* ---------- Answer options ---------- */
+  .options{display:flex;flex-direction:column;gap:11px}
+  .opt{
+    display:flex;align-items:center;gap:13px;text-align:left;cursor:pointer;
+    background:#F7FBFC;border:1.5px solid var(--line);border-radius:14px;
+    padding:15px 16px;font-size:15.5px;line-height:1.4;color:var(--ink);font-weight:500;
+    transition:border-color .15s ease, background .15s ease, transform .1s ease, box-shadow .2s ease;
+    width:100%;
+  }
+  .opt:hover{border-color:var(--cyan);background:#F0FAFC}
+  .opt:active{transform:scale(.992)}
+  .opt.sel{border-color:var(--teal);background:#ECFBF8;box-shadow:0 8px 20px -12px rgba(20,184,166,.7)}
+  .opt .key{
+    flex:none;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:var(--teal);
+    background:#fff;border:1.5px solid var(--line);transition:all .15s ease;
+  }
+  .opt.sel .key{background:var(--badge-grad);color:#fff;border-color:transparent}
+
+  .nav{display:flex;align-items:center;gap:12px;margin-top:22px}
+  .back{
+    background:none;border:0;cursor:pointer;color:var(--muted);font-weight:600;font-size:14px;
+    padding:8px 4px;display:inline-flex;align-items:center;gap:6px;
+  }
+  .back:hover{color:var(--ink)}
+  .back[hidden]{display:none}
+  .spacer{flex:1}
+
+  /* ---------- Email capture ---------- */
+  .lead-icon{
+    width:62px;height:62px;border-radius:18px;background:var(--ocean-wave);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 18px;
+    box-shadow:0 14px 30px -12px rgba(14,92,115,.8);
+  }
+  .center{text-align:center}
+  .field{margin:20px 0 8px;text-align:left}
+  .field label{
+    display:block;font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.12em;font-size:12.5px;color:var(--muted);margin-bottom:8px;
+  }
+  .field input[type=email]{
+    width:100%;font-family:'Inter',sans-serif;font-size:16px;color:var(--ink);
+    padding:15px 16px;border:1.5px solid var(--line);border-radius:13px;background:#F7FBFC;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input[type=email]:focus{outline:0;border-color:var(--cyan);box-shadow:0 0 0 4px rgba(6,182,212,.14);background:#fff}
+  .err{color:#E0533D;font-size:13px;margin-top:8px;min-height:16px;font-weight:500}
+  .privacy{font-size:12.5px;color:var(--muted);line-height:1.5;margin-top:14px}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden}
+
+  /* ---------- Result ---------- */
+  .result-badge{
+    width:74px;height:82px;margin:0 auto 16px;position:relative;
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    background:var(--badge-grad);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 16px 34px -12px rgba(6,182,212,.8);
+  }
+  .result-badge svg{width:34px;height:34px}
+  .result-eyebrow{
+    text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:600;
+    text-transform:uppercase;letter-spacing:.2em;font-size:12.5px;color:var(--teal);margin-bottom:6px;
+  }
+  .result-name{
+    text-align:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;
+    color:var(--ink);font-size:clamp(28px,7.6vw,38px);line-height:1.02;margin-bottom:14px;
+  }
+  .result-desc{font-size:15.5px;line-height:1.62;color:var(--text);margin-bottom:22px}
+
+  .traits{display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+  .trait{border:1px solid var(--line);border-radius:14px;padding:15px 16px;background:#F9FCFD}
+  .trait .lbl{
+    font-family:'Barlow Condensed',sans-serif;font-weight:600;text-transform:uppercase;
+    letter-spacing:.13em;font-size:12px;margin-bottom:6px;display:flex;align-items:center;gap:8px;
+  }
+  .trait.strength .lbl{color:var(--verified)}
+  .trait.blind .lbl{color:#E08A3D}
+  .trait.action .lbl{color:var(--electric)}
+  .trait p{font-size:15px;line-height:1.5;color:var(--ink)}
+  .trait .ic{width:18px;height:18px;flex:none}
+
+  .pitch{
+    background:var(--ocean-wave);color:#EAF6FA;border-radius:16px;padding:20px 19px;margin-bottom:18px;
+  }
+  .pitch p{font-size:14.5px;line-height:1.6;color:#DCEEF3}
+  .pitch p strong{color:#fff}
+
+  .cta-foot{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:18px}
+  .share{font-size:13.5px;color:var(--muted);text-align:center;line-height:1.5}
+  .share b{color:var(--ink)}
+  .share-row{display:flex;gap:10px;justify-content:center;margin-top:10px}
+  .share-btn{
+    width:40px;height:40px;border-radius:11px;border:1.5px solid var(--line);background:#fff;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;color:var(--ocean-deep);
+    transition:border-color .15s ease, transform .1s ease, background .15s ease;
+  }
+  .share-btn:hover{border-color:var(--cyan);background:#F0FAFC}
+  .share-btn:active{transform:scale(.95)}
+  .share-btn svg{width:18px;height:18px}
+  .retake{background:none;border:0;cursor:pointer;color:var(--muted);font-weight:600;font-size:14px;text-decoration:underline;text-underline-offset:3px}
+  .retake:hover{color:var(--ink)}
+  .copied{font-size:12.5px;color:var(--verified);font-weight:600;min-height:14px}
+
+  /* footer note */
+  .footnote{text-align:center;color:rgba(234,246,250,.62);font-size:12px;margin-top:18px;letter-spacing:.02em}
+  .footnote b{color:rgba(234,246,250,.85);font-weight:600}
+
+  [hidden]{display:none !important}
+
+  @media (max-width:380px){
+    .card{padding:26px 18px 24px}
+    .meta{gap:12px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================================================================
+     NETLIFY FORM DETECTION STUB
+     This hidden static form lets Netlify discover "quiz-leads" at build
+     time (Netlify parses the raw HTML). The visible form below submits
+     via JavaScript. Both share the same name + fields.
+     ==================================================================== -->
+<form name="quiz-leads" netlify netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email" />
+  <input type="text" name="result-type" />
+  <input type="text" name="result-name" />
+  <input type="text" name="bot-field" />
+</form>
+
+<main class="stage">
+
+  <div class="brandbar">
+    <span class="hexbadge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.2 4.2L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+    <span class="brandword">SuperSpeakers <small>·&nbsp;Validálva</small></span>
+  </div>
+
+  <!-- ============ SCREEN 1 — INTRO ============ -->
+  <section class="card" id="screen-intro">
+    <div class="eyebrow">Szakértő-előadó teszt</div>
+    <h1>Milyen szakértő-előadó típus vagy valójában?</h1>
+    <p class="subtitle">7 gyors kérdés, 2 perc — és kiderül, <strong>mi emeli (vagy épp fékezi) az előadói értékedet</strong>, plusz a következő konkrét lépésed a validált szakértői szint felé.</p>
+
+    <div class="meta">
+      <span class="item"><span class="dot"></span><b>7</b>&nbsp;kérdés</span>
+      <span class="item"><span class="dot"></span>kb.&nbsp;<b>2</b>&nbsp;perc</span>
+      <span class="item"><span class="dot"></span><b>4</b>&nbsp;előadó-típus</span>
+    </div>
+
+    <button class="btn" id="startBtn">Kezdjük<span class="arrow">→</span></button>
+  </section>
+
+  <!-- ============ SCREEN 2 — QUESTIONS ============ -->
+  <section class="card" id="screen-quiz" hidden>
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span class="qn" id="qLabel">1 / 7. kérdés</span>
+        <span class="pct" id="qPct">14%</span>
+      </div>
+      <div class="track"><div class="fill" id="qFill"></div></div>
+    </div>
+
+    <h2 class="question" id="qText"></h2>
+    <div class="options" id="qOptions"></div>
+
+    <div class="nav">
+      <button class="back" id="backBtn" hidden>← Vissza</button>
+      <span class="spacer"></span>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3 — EMAIL CAPTURE ============ -->
+  <section class="card center" id="screen-email" hidden>
+    <div class="lead-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5h13A2.5 2.5 0 0 1 21 7.5v9a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 16.5v-9Z" stroke="#fff" stroke-width="1.8"/><path d="m4 8 8 5 8-5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="eyebrow" style="justify-content:center">Majdnem kész!</div>
+    <h1 style="font-size:clamp(26px,7vw,34px)">Hová küldjem<br>az eredményed?</h1>
+    <p class="subtitle" style="margin-bottom:4px">Add meg az e-mail-címed, és azonnal megmutatom, melyik a te előadó-típusod — a hozzá tartozó fejlődési lépéseddel együtt.</p>
+
+    <!-- Visible form: same name + fields as the detection stub above. -->
+    <form id="leadForm" name="quiz-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="quiz-leads" />
+      <input type="hidden" name="result-type" id="fldResultType" value="" />
+      <input type="hidden" name="result-name" id="fldResultName" value="" />
+      <p class="hp"><label>Ne töltsd ki, ha ember vagy: <input name="bot-field" /></label></p>
+
+      <div class="field">
+        <label for="email">E-mail-cím</label>
+        <input type="email" id="email" name="email" inputmode="email" autocomplete="email" placeholder="te@pelda.hu" required />
+        <div class="err" id="emailErr"></div>
+      </div>
+
+      <button class="btn" type="submit" id="revealBtn">Mutasd az eredményem<span class="arrow">→</span></button>
+      <p class="privacy">Spam helyett értéket küldök. Bármikor leiratkozhatsz egyetlen kattintással.</p>
+    </form>
+  </section>
+
+  <!-- ============ SCREEN 4 — RESULT ============ -->
+  <section class="card" id="screen-result" hidden>
+    <div class="result-badge" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M5 12.5l4.2 4.2L19 7" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="result-eyebrow">A te típusod</div>
+    <h2 class="result-name" id="rName"></h2>
+    <p class="result-desc" id="rDesc"></p>
+
+    <div class="traits">
+      <div class="trait strength">
+        <div class="lbl">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="m12 2 2.9 6.1 6.6.8-4.9 4.6 1.3 6.5L12 17.8 6.1 20.6l1.3-6.5L2.5 8.9l6.6-.8L12 2Z" stroke="#10B981" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Legnagyobb erősséged
+        </div>
+        <p id="rStrength"></p>
+      </div>
+      <div class="trait blind">
+        <div class="lbl">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9 2.4 17.5A2 2 0 0 0 4.1 20.5h15.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" stroke="#E08A3D" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Legnagyobb vakfoltod
+        </div>
+        <p id="rBlind"></p>
+      </div>
+      <div class="trait action">
+        <div class="lbl">
+          <svg class="ic" viewBox="0 0 24 24" fill="none"><path d="M13 2 4.5 13H11l-1 9 8.5-11H12l1-9Z" stroke="#2563EB" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          A héten ezt tedd meg
+        </div>
+        <p id="rAction"></p>
+      </div>
+    </div>
+
+    <div class="pitch"><p id="rPitch"></p></div>
+
+    <a class="btn" id="ctaBtn" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Feliratkozom<span class="arrow">→</span></a>
+
+    <div class="cta-foot">
+      <div class="share">
+        <b>Tetszett?</b> Oszd meg a típusod egy kollégáddal — vajon ő melyik lesz?
+        <div class="share-row">
+          <button class="share-btn" id="shareLinkedIn" title="Megosztás LinkedInen" aria-label="Megosztás LinkedInen">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.4 8.5h3.1V21H3.4V8.5Zm5.06 0h2.97v1.7h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.09v-5.34c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V21H8.46V8.5Z"/></svg>
+          </button>
+          <button class="share-btn" id="shareCopy" title="Link másolása" aria-label="Link másolása">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 9.5A2.5 2.5 0 0 1 11.5 7h6A2.5 2.5 0 0 1 20 9.5v6a2.5 2.5 0 0 1-2.5 2.5h-6A2.5 2.5 0 0 1 9 15.5v-6Z" stroke="currentColor" stroke-width="1.7"/><path d="M15 7V5.5A2.5 2.5 0 0 0 12.5 3h-6A2.5 2.5 0 0 0 4 5.5v6A2.5 2.5 0 0 0 6.5 14H8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="copied" id="copiedMsg"></div>
+      </div>
+      <button class="retake" id="retakeBtn">A teszt újrakezdése</button>
+    </div>
+  </section>
+
+  <p class="footnote">© 2026 <b>SuperSpeakers</b> — A legjobb szakértők. Validálva.</p>
+
+</main>
+
+<script>
+/* =======================================================================
+   SuperSpeakers — Szakértő-előadó típus teszt
+   Single-file logic: navigation, scoring, Netlify-form submit, result.
+   ======================================================================= */
+
+/* ---- 1) RESULT TYPES (Section 3) ----------------------------------- */
+const RESULTS = {
+  A: {
+    name: "A Rejtett Szakértő",
+    desc: "A tudásod mély, a tapasztalatod megkérdőjelezhetetlen — publikációk, évek, valódi szakmai súly van mögötted. Mégis sokszor a háttérben maradsz, miközben nálad kevesebbet tudók állnak a reflektorfényben. Nem a felkészültséged hiányzik, hanem a láthatóságod: a szakma még nem tudja igazán, milyen érték vagy. Itt az ideje, hogy ezt megmutasd.",
+    strength: "Hiteles, bizonyítékokkal alátámasztott szaktudás — pontosan az, amit egy validált minősítés a legmagasabbra értékel.",
+    blind: "Láthatóság. Túl kevesen tudják, milyen jó vagy, mert a tartalomra figyelsz, az önreprezentációra alig.",
+    action: "Válassz ki egyetlen erős szakmai eredményt (egy kutatást, esettanulmányt vagy tanulságot), és foglald 3–4 mondatba úgy, ahogy egy színpadról elmondanád. Ez lesz az első nyilvános „mini-előadásod” — oszd meg a hálózatoddal a héten.",
+    pitch: "A SuperScore pontosan arra született, hogy a magadfajta rejtett szakértők érdeme <strong>objektíven, adatvezérelten</strong> láthatóvá váljon — nem követőszám, hanem igazolt teljesítmény alapján. A Substackemen lépésről lépésre megmutatom, hogyan teszi mérhetővé és validálttá a módszer azt a tudást, ami nálad már megvan."
+  },
+  B: {
+    name: "A Színpadkész Mester",
+    desc: "Te már ott vagy, ahová mások vágynak: rendszeresen előadsz, ismernek a szakmádban, és a visszajelzések évek óta igazolják, hogy értesz hozzá. A tartalom és a színpadi jelenlét nálad együtt van — a kérdés már nem az, hogy „tudsz-e”, hanem hogy ezt a kiválóságot mennyire ismeri el a piac feketén-fehéren. Egy hivatalos, független minősítés a logikus következő szint.",
+    strength: "Egyensúly: igazolt előadói rutin, szakmai tekintély és visszaigazolt minőség — együtt, egy helyen.",
+    blind: "Formalizálás. A teljesítményed kiváló, de nincs mögötte független, összevethető védjegy, amire a megrendelők egy pillanat alatt rábólintanak.",
+    action: "Gyűjtsd össze egyetlen oldalra az elmúlt 12 hónap előadásait, a szervezői és közönség-visszajelzéseket, valamint a legfontosabb szakmai eredményeidet. Ez a „validációs dosszié” az alapja annak, hogy a minősítésed pillanatok alatt igazolható legyen.",
+    pitch: "Neked nem bizonyítanod kell, hanem <strong>pecsétet adni</strong> annak, amit már nyújtasz. A SuperSpeakers minősítés és a SuperScore éppen ezt teszi: független, érdemalapú védjeggyé fordítja a meglévő teljesítményedet. A Substackemen megmutatom, mit néz a zsűri és hogyan készülhetsz fel a validációra."
+  },
+  C: {
+    name: "A Feltörekvő Hang",
+    desc: "Benned megvan a lendület, a karizma és a bátorság, hogy színpadra állj — minden lehetőséget megragadsz, és ez tiszteletre méltó. A jelenléted erős, az ambíciód még erősebb. Ami most épül, az a mélység és a bizonyíték: az a szakmai háttér, ami a tehetségedet megkérdőjelezhetetlenné teszi. Jó hír, hogy pontosan tudod, merre tartasz — már csak az alapokat kell alá tenni.",
+    strength: "Energia, jelenlét és tanulási vágy — ritka, értékes nyersanyag, amire hosszú távú előadói karrier építhető.",
+    blind: "Mélység és bizonyíték. A lendület előtte jár az igazolt szakmai háttérnek; a hitelességet most kell felépítened az ambíciód mögé.",
+    action: "Jelölj ki egyetlen szűk szakterületet, ahol valódi szakértővé akarsz válni, és kötelezd el magad egy konkrét bizonyítékra a következő hetekre: egy alapos szakmai poszt, egy esettanulmány vagy egy felkérés egy releváns eseményre.",
+    pitch: "A SuperScore megmutatja, <strong>pontosan hol tartasz</strong> ma, és mely pilléreken léphetsz a leggyorsabban előre — világos, mérhető úttal a feltörekvőtől a validált szakértőig. A Substackemen ezt az utat bontom le lépésekre, plusz a szakértői felkészítő programjaimról is itt hallasz először."
+  },
+  D: {
+    name: "A Szerény Tehetség",
+    desc: "Ami nálad megvan — a tudás és a színpadi képesség is —, azt sokan irigyelnék. A gond nem a teljesítményeddel van, hanem azzal, hogy ritkán vállalod fel: inkább másokat engedsz előre, lefelé kerekíted az eredményeidet, és a dicséretet is elhárítod. Pedig az érték attól nem lesz kevesebb, hogy nem beszélsz róla — csak láthatatlan marad. Ideje engedned, hogy a szakma is annak lásson, ami valójában vagy.",
+    strength: "Hiteles, túlzásoktól mentes szakmaiság — a tudásod valódi, és pont ezért bír el sokkal magabiztosabb felvállalást.",
+    blind: "Önbizalom és felvállalás. Az értéked adott; a saját habozásod tart vissza attól, hogy kimondd és kiállj érte.",
+    action: "Írj le 5 konkrét szakmai eredményt, amire büszke lehetsz, tényszerűen, mentegetőzés nélkül. Válaszd ki a legerősebbet, és oszd meg nyilvánosan a héten — gyakorold az érték felvállalását úgy, hogy közben tényekre támaszkodsz, nem dicsekvésre.",
+    pitch: "Ha nehéz magadról beszélni, hagyd, hogy egy <strong>független, objektív pontszám beszéljen helyetted</strong>. A SuperScore érdemalapú validációja pontosan ezt adja: tényekre épülő megerősítést, amit nem te mondasz magadról. A Substackemen arról is írok, hogyan lehet a szakmai önbizalmat bizonyítékokra — nem hangerőre — építeni."
+  }
+};
+
+/* ---- 2) PER-RESULT CTA LINKS (Section 4) ---------------------------
+   Each result type gets its OWN link so you can track exactly which type
+   a new subscriber came from. Replace the placeholders with your real
+   Substack / offer URLs. If you only have one link now, paste the same
+   one into all four — the quiz works perfectly either way.            */
+const CTA_LINKS = {
+  A: "PASTE_LINK_HERE_RESULT_A",   // Result 1 → A Rejtett Szakértő
+  B: "PASTE_LINK_HERE_RESULT_B",   // Result 2 → A Színpadkész Mester
+  C: "PASTE_LINK_HERE_RESULT_C",   // Result 3 → A Feltörekvő Hang
+  D: "PASTE_LINK_HERE_RESULT_D"    // Result 4 → A Szerény Tehetség
+};
+
+/* ---- 3) QUESTIONS (Section 2). Each option maps to a type. -------- */
+const QUESTIONS = [
+  {
+    q: "Amikor arra gondolsz, hogy szakmai közönség előtt állsz a színpadon, mi az első érzésed?",
+    a: [
+      { t:"A", label:"Rengeteg tudás van bennem, de ritkán kerülök színpadra — pedig lenne mit mondanom." },
+      { t:"B", label:"Otthon érzem magam: felkészülök, kiállok, és élvezem a helyzetet." },
+      { t:"C", label:"Imádom a reflektorfényt — minden lehetőséget megragadok, hogy építsem magam." },
+      { t:"D", label:"Tudnék, de inkább másokat engedek előre — nem szeretem magam előtérbe tolni." }
+    ]
+  },
+  {
+    q: "Hány szakmai előadást, workshopot vagy előadói felkérést teljesítettél az elmúlt egy évben?",
+    a: [
+      { t:"A", label:"Keveset — a szakmai súlyom inkább a tudásomban és a publikációimban van." },
+      { t:"B", label:"Rendszeresen, elismert szakmai színpadokon és eseményeken." },
+      { t:"C", label:"Egyre többet — gyűjtöm a tapasztalatot és a lendületet." },
+      { t:"D", label:"Lehetne több — ritkán ajánlom be magam, pedig megtehetném." }
+    ]
+  },
+  {
+    q: "Mire vagy a legbüszkébb a szakmai profilodban?",
+    a: [
+      { t:"A", label:"A mély szaktudásra: publikációk, kutatás, évek alatt felhalmozott tapasztalat." },
+      { t:"B", label:"Az igazolt előadásaim, az elismerésem és a visszajelzéseim együttesére." },
+      { t:"C", label:"Az energiámra és a friss nézőpontomra, amivel megszólítom a közönséget." },
+      { t:"D", label:"Őszintén? Mindezt alábecsülöm — nehezen tudnám egy mondatban kiemelni." }
+    ]
+  },
+  {
+    q: "Hogyan állsz a közönség visszajelzéseihez egy előadás után?",
+    a: [
+      { t:"A", label:"Ritkán gyűjtöm be — inkább a tartalomra figyelek, mint a fogadtatásra." },
+      { t:"B", label:"Tudatosan kérem és felhasználom, hogy minden alkalommal jobb legyek." },
+      { t:"C", label:"Élek értük — lelkesít, ha látom, hogy megérintettem a közönséget." },
+      { t:"D", label:"Elhárítom a dicséretet, és inkább a hibákra fókuszálok." }
+    ]
+  },
+  {
+    q: "Hogyan viszonyulsz a saját személyes szakmai márkádhoz?",
+    a: [
+      { t:"A", label:"A tartalom fontosabb az önreklámnál — keveset foglalkozom a megjelenéssel." },
+      { t:"B", label:"Tudatosan építem, eredményekre és bizonyítékokra alapozva." },
+      { t:"C", label:"Aktívan és kísérletezve építem a láthatóságomat, sok csatornán." },
+      { t:"D", label:"Kényelmetlen önmagamat „menedzselni” — kerülöm az öndícséretet." }
+    ]
+  },
+  {
+    q: "Mi áll leginkább a következő szakmai szinted útjába?",
+    a: [
+      { t:"A", label:"A láthatóság: túl kevesen tudják, valójában milyen jó vagyok." },
+      { t:"B", label:"Semmi komoly — készen állok az elismerés és a validáció következő szintjére." },
+      { t:"C", label:"Még kell a mélység és a bizonyíték, ami alátámasztja az ambíciómat." },
+      { t:"D", label:"A saját habozásom: nem vállalom fel azt, amit már kiérdemeltem." }
+    ]
+  },
+  {
+    q: "Miért érdekelne téged egy független, objektív minősítés — mint a SuperScore?",
+    a: [
+      { t:"A", label:"Hogy a rejtett szaktudásom végre láthatóvá és összevethetővé váljon." },
+      { t:"B", label:"Hogy hivatalos pecsétet és védjegyet adjak annak, amit már nyújtok." },
+      { t:"C", label:"Hogy lássam, hol tartok, és gyorsabban léphessek feljebb." },
+      { t:"D", label:"Hogy objektív bizonyíték szülessen, amire támaszkodva felvállalhatom az értékem." }
+    ]
+  }
+];
+
+/* ---- 4) STATE ------------------------------------------------------ */
+const TOTAL = QUESTIONS.length;
+let current = 0;                       // current question index
+let answers = new Array(TOTAL).fill(null); // selected type per question
+
+const $ = (id) => document.getElementById(id);
+
+/* ---- 5) SCREEN SWITCHING ------------------------------------------ */
+function show(screen){
+  ["screen-intro","screen-quiz","screen-email","screen-result"].forEach(id=>{
+    $(id).hidden = (id !== screen);
+  });
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ---- 6) RENDER A QUESTION ----------------------------------------- */
+function renderQuestion(){
+  const item = QUESTIONS[current];
+  const num = current + 1;
+  $("qLabel").textContent = num + " / " + TOTAL + ". kérdés";
+  const pct = Math.round((num / TOTAL) * 100);
+  $("qPct").textContent = pct + "%";
+  $("qFill").style.width = pct + "%";
+  $("qText").textContent = item.q;
+
+  const box = $("qOptions");
+  box.innerHTML = "";
+  item.a.forEach((opt, i) => {
+    const key = String.fromCharCode(65 + i); // A,B,C,D
+    const btn = document.createElement("button");
+    btn.className = "opt" + (answers[current] === opt.t ? " sel" : "");
+    btn.type = "button";
+    btn.innerHTML = '<span class="key">'+key+'</span><span>'+opt.label+'</span>';
+    btn.addEventListener("click", () => choose(opt.t));
+    box.appendChild(btn);
+  });
+
+  $("backBtn").hidden = (current === 0);
+}
+
+/* ---- 7) CHOOSE AN ANSWER (auto-advance) --------------------------- */
+function choose(type){
+  answers[current] = type;
+  // brief highlight, then advance
+  const opts = $("qOptions").children;
+  for (const o of opts) o.classList.remove("sel");
+  const idx = QUESTIONS[current].a.findIndex(x => x.t === type);
+  if (opts[idx]) opts[idx].classList.add("sel");
+
+  setTimeout(() => {
+    if (current < TOTAL - 1){
+      current++;
+      renderQuestion();
+    } else {
+      show("screen-email");
+    }
+  }, 260);
+}
+
+/* ---- 8) SCORING ---------------------------------------------------- */
+function computeResult(){
+  const tally = {A:0,B:0,C:0,D:0};
+  answers.forEach(t => { if (t) tally[t]++; });
+  // highest count wins; tie-break by earliest answer order to feel stable
+  let best = "A", bestCount = -1;
+  ["A","B","C","D"].forEach(k => {
+    if (tally[k] > bestCount){ best = k; bestCount = tally[k]; }
+  });
+  // tie-break: if multiple share the max, prefer the type of the LAST answer
+  const max = Math.max(...Object.values(tally));
+  const tied = Object.keys(tally).filter(k => tally[k] === max);
+  if (tied.length > 1){
+    for (let i = answers.length - 1; i >= 0; i--){
+      if (tied.includes(answers[i])){ best = answers[i]; break; }
+    }
+  }
+  return best;
+}
+
+/* ---- 9) RENDER RESULT --------------------------------------------- */
+function renderResult(type){
+  const r = RESULTS[type];
+  $("rName").textContent = r.name;
+  $("rDesc").textContent = r.desc;
+  $("rStrength").textContent = r.strength;
+  $("rBlind").textContent = r.blind;
+  $("rAction").textContent = r.action;
+  $("rPitch").innerHTML = r.pitch;
+  $("ctaBtn").setAttribute("href", CTA_LINKS[type] || "#");
+  show("screen-result");
+}
+
+/* ---- 10) NETLIFY FORM SUBMIT (JS, instant reveal) ------------------ */
+function encode(data){
+  return Object.keys(data)
+    .map(k => encodeURIComponent(k) + "=" + encodeURIComponent(data[k]))
+    .join("&");
+}
+
+$("leadForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const email = $("email").value.trim();
+  const errEl = $("emailErr");
+
+  // simple email validation
+  const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!ok){
+    errEl.textContent = "Kérlek, adj meg egy érvényes e-mail-címet.";
+    $("email").focus();
+    return;
+  }
+  errEl.textContent = "";
+
+  const type = computeResult();
+  $("fldResultType").value = type;
+  $("fldResultName").value = RESULTS[type].name;
+
+  const btn = $("revealBtn");
+  btn.disabled = true;
+  btn.innerHTML = "Egy pillanat…";
+
+  const payload = {
+    "form-name": "quiz-leads",
+    "email": email,
+    "result-type": type,
+    "result-name": RESULTS[type].name,
+    "bot-field": (document.querySelector('input[name=bot-field]')||{}).value || ""
+  };
+
+  // Fire the Netlify submission as a completely isolated, fire-and-forget
+  // call. It is wrapped in try/catch because on a local file:// open `fetch`
+  // can be missing or throw SYNCHRONOUSLY — which must never block the
+  // result from appearing. On a deployed Netlify site this captures the lead.
+  try {
+    if (typeof fetch === "function") {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode(payload)
+      }).catch(function(){ /* offline / local preview — ignore */ });
+    }
+  } catch (_) { /* file:// or blocked — ignore, still show the result */ }
+
+  // ALWAYS reveal the result, regardless of the network call above.
+  renderResult(type);
+});
+
+/* ---- 11) WIRE UP CONTROLS ----------------------------------------- */
+$("startBtn").addEventListener("click", () => { current = 0; renderQuestion(); show("screen-quiz"); });
+$("backBtn").addEventListener("click", () => { if (current > 0){ current--; renderQuestion(); } });
+$("retakeBtn").addEventListener("click", () => {
+  current = 0; answers = new Array(TOTAL).fill(null);
+  $("email").value = ""; $("emailErr").textContent = "";
+  const btn = $("revealBtn"); btn.disabled = false; btn.innerHTML = 'Mutasd az eredményem<span class="arrow">→</span>';
+  $("copiedMsg").textContent = "";
+  show("screen-intro");
+});
+
+/* ---- 12) SHARE ----------------------------------------------------- */
+$("shareCopy").addEventListener("click", async () => {
+  try{
+    await navigator.clipboard.writeText(window.location.href);
+    $("copiedMsg").textContent = "Link kimásolva ✓";
+  }catch(_){
+    $("copiedMsg").textContent = window.location.href;
+  }
+  setTimeout(()=>{ $("copiedMsg").textContent = ""; }, 2600);
+});
+$("shareLinkedIn").addEventListener("click", () => {
+  const url = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(window.location.href);
+  window.open(url, "_blank", "noopener");
+});
+</script>
+</body>
+</html>
